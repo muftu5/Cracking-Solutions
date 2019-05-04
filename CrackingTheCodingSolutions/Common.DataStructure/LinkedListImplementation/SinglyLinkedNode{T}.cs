@@ -1,23 +1,22 @@
 ﻿namespace Common.DataStructure
 {
-    public class Node<T>
+    public class SinglyLinkedNode<T>
     {
         public T Value { get; private set; }
-        private Node<T> _next;
+        private SinglyLinkedNode<T> _next;
 
-        public Node(T value)
+        public SinglyLinkedNode(T value)
         {
             Value = value;
         }
 
-        public Node<T> SetNext(Node<T> value)
+        public SinglyLinkedNode<T> SetNext(SinglyLinkedNode<T> value)
         {
             _next = value;
             return _next;
         }
 
-        public Node<T> GetNext() => _next;
-
+        public SinglyLinkedNode<T> GetNext() => _next;
         public bool HasNext() => _next != null;
     }
 }

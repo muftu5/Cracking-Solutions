@@ -6,15 +6,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace RemoveDups.Tests
 {
     [TestClass]
-    public class UnitTest
+    public class RemoveDupsTests
     {
         [TestMethod]
-        public void Test1()
+        public void RemoveDuplicates_ShouldDoNothing_WhenElementsAreUnique()
         {
             var list = new SinglyLinkedList<int>();
-            list.Append(1);
-            list.Append(2);
-            list.Append(3);
+            list.AppendHead(1);
+            list.AppendHead(2);
+            list.AppendHead(3);
 
             list.RemoveDuplicates();
 
@@ -22,12 +22,12 @@ namespace RemoveDups.Tests
         }
 
         [TestMethod]
-        public void Test2()
+        public void RemoveDuplicates_ShouldRemoveSingleDuplicate_WhenItIsPresent()
         {
             var list = new SinglyLinkedList<int>();
-            list.Append(1);
-            list.Append(2);
-            list.Append(2);
+            list.AppendHead(1);
+            list.AppendHead(2);
+            list.AppendHead(2);
 
             list.RemoveDuplicates();
 
@@ -35,12 +35,12 @@ namespace RemoveDups.Tests
         }
 
         [TestMethod]
-        public void Test3()
+        public void RemoveDuplicates_ShouldRemoveMultipleDuplicates_WhenDuplicatesExist()
         {
             var list = new SinglyLinkedList<int>();
-            list.Append(2);
-            list.Append(2);
-            list.Append(2);
+            list.AppendHead(2);
+            list.AppendHead(2);
+            list.AppendHead(2);
 
             list.RemoveDuplicates();
 

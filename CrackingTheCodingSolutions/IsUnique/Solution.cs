@@ -5,9 +5,8 @@ namespace IsUnique
 {
     public static class Solution
     {
-        //Implement an algorithm to determine if a string has all unique characters.
-        //What if you cannot use additional data structures?
 
+        //Determines whether a string contains unique characters using buffer
         public static bool HasUniqueChars(string s)
         {
             var dict = new Dictionary<char, int>();

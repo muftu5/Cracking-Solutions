@@ -1,17 +1,21 @@
 ﻿using System;
 
-namespace Common.DataStructure
+namespace Common.DataStructure.Queue
 {
-    public class Stack<T> : IStack<T>
+    public class Queue<T> : IQueue<T>
     {
         private readonly SinglyLinkedList<T> _linkedList;
 
-        public Stack()
+        public Queue()
         {
             _linkedList = new SinglyLinkedList<T>();
         }
 
-        public bool IsEmpty() => _linkedList.Tail() == null;
+        public void Add(T element) => _linkedList.AppendHead(element);
+
+
+        public bool IsEmpty() => _linkedList.Head() == null;
+
 
         public T Peek()
         {
@@ -21,8 +25,6 @@ namespace Common.DataStructure
             return _linkedList.Tail().Value;
         }
 
-        public T Pop() => _linkedList.RemoveTail();
-
-        public void Push(T element) => _linkedList.AppendTail(element);
+        public T Remove() => _linkedList.RemoveTail();
     }
 }
