@@ -1,5 +1,0 @@
-C:\Users\shelm\source\repos\CrackingTheCodingSolutions\IsUnique\bin\Debug\IsUnique.dll
-C:\Users\shelm\source\repos\CrackingTheCodingSolutions\IsUnique\bin\Debug\IsUnique.pdb
-C:\Users\shelm\source\repos\CrackingTheCodingSolutions\IsUnique\obj\Debug\IsUnique.csproj.CoreCompileInputs.cache
-C:\Users\shelm\source\repos\CrackingTheCodingSolutions\IsUnique\obj\Debug\IsUnique.dll
-C:\Users\shelm\source\repos\CrackingTheCodingSolutions\IsUnique\obj\Debug\IsUnique.pdb

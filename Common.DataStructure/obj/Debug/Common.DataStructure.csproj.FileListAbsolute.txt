@@ -1,5 +1,0 @@
-C:\Users\shelm\source\repos\CrackingTheCodingSolutions\Common.DataStructure\bin\Debug\Common.DataStructure.dll
-C:\Users\shelm\source\repos\CrackingTheCodingSolutions\Common.DataStructure\bin\Debug\Common.DataStructure.pdb
-C:\Users\shelm\source\repos\CrackingTheCodingSolutions\Common.DataStructure\obj\Debug\Common.DataStructure.csproj.CoreCompileInputs.cache
-C:\Users\shelm\source\repos\CrackingTheCodingSolutions\Common.DataStructure\obj\Debug\Common.DataStructure.dll
-C:\Users\shelm\source\repos\CrackingTheCodingSolutions\Common.DataStructure\obj\Debug\Common.DataStructure.pdb
