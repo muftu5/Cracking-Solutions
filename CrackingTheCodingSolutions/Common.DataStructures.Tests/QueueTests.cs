@@ -1,5 +1,4 @@
 ﻿using System;
-using Common.DataStructure;
 using Common.DataStructure.Queue;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

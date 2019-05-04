@@ -4,7 +4,7 @@ namespace Common.DataStructure
 {
     public class Stack<T> : IStack<T>
     {
-        private readonly SinglyLinkedList<T> _linkedList;
+        protected readonly SinglyLinkedList<T> _linkedList;
 
         public Stack()
         {

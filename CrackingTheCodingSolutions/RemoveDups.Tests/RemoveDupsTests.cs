@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Common.DataStructure;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace RemoveDups.Tests
@@ -8,43 +6,50 @@ namespace RemoveDups.Tests
     [TestClass]
     public class RemoveDupsTests
     {
+        private LinkedList<int> linkedList;
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            linkedList = new LinkedList<int>();
+        }
+
         [TestMethod]
         public void RemoveDuplicates_ShouldDoNothing_WhenElementsAreUnique()
         {
-            var list = new SinglyLinkedList<int>();
-            list.AppendHead(1);
-            list.AppendHead(2);
-            list.AppendHead(3);
+            linkedList.AppendHead(1);
+            linkedList.AppendHead(2);
+            linkedList.AppendHead(3);
 
-            list.RemoveDuplicates();
+            linkedList.RemoveDuplicates();
 
-            Assert.AreEqual(3, list.Enumerate().Count());
+            Assert.AreEqual(3, linkedList.Enumerate().Count());
         }
 
         [TestMethod]
         public void RemoveDuplicates_ShouldRemoveSingleDuplicate_WhenItIsPresent()
         {
-            var list = new SinglyLinkedList<int>();
-            list.AppendHead(1);
-            list.AppendHead(2);
-            list.AppendHead(2);
+            var list = new LinkedList<int>();
+            linkedList.AppendHead(1);
+            linkedList.AppendHead(2);
+            linkedList.AppendHead(2);
 
-            list.RemoveDuplicates();
+            linkedList.RemoveDuplicates();
 
-            Assert.AreEqual(2, list.Enumerate().Count());
+            Assert.AreEqual(2, linkedList.Enumerate().Count());
         }
 
         [TestMethod]
         public void RemoveDuplicates_ShouldRemoveMultipleDuplicates_WhenDuplicatesExist()
         {
-            var list = new SinglyLinkedList<int>();
-            list.AppendHead(2);
-            list.AppendHead(2);
-            list.AppendHead(2);
+            var list = new LinkedList<int>();
+            linkedList.AppendHead(2);
+            linkedList.AppendHead(2);
+            linkedList.AppendHead(2);
 
-            list.RemoveDuplicates();
+            linkedList.RemoveDuplicates();
 
-            Assert.AreEqual(1, list.Enumerate().Count());
+            Assert.AreEqual(1, linkedList.Enumerate().Count());
         }
     }
 }

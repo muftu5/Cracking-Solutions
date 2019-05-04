@@ -56,9 +56,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common.DataStructure\Common.DataStructures.csproj">
+    <ProjectReference Include="..\Common.DataStructures\Common.DataStructures.csproj">
       <Project>{995d635a-9288-43e2-b0f0-26356598aa7e}</Project>
       <Name>Common.DataStructures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RemoveDups\RemoveDups.csproj">
+      <Project>{32ccf342-fce4-4464-8fc0-2af49cf0bad8}</Project>
+      <Name>RemoveDups</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

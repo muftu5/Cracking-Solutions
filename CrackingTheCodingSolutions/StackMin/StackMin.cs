@@ -1,7 +1,6 @@
 ﻿using Common.DataStructure;
 using Common.DataStructure.LinkedListImplementation;
 using System;
-using System.Linq;
 
 namespace StackMin
 {

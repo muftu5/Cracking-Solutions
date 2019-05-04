@@ -4,8 +4,8 @@ namespace Common.DataStructure.LinkedListImplementation
 {
     public class DoublyLinkedList<T>
     {
-        private DoublyLinkedNode<T> _tail;
-        private DoublyLinkedNode<T> _head;
+        protected DoublyLinkedNode<T> _tail;
+        protected DoublyLinkedNode<T> _head;
 
         public void Append(T value)
         {
