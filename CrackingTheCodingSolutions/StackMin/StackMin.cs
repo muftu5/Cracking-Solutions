@@ -1,40 +1,28 @@
 ﻿using Common.DataStructure;
-using Common.DataStructure.LinkedListImplementation;
 using System;
 
 namespace StackMin
 {
-    public class StackMin: IStack<int>
+    public class StackMin: Stack<int>, IStack<int>
     {
-        private int _minElement = int.MaxValue;
-
-        private readonly DoublyLinkedList<int> _linkedList;
-
-        public StackMin()
+        private Stack<int> _minElements = new Stack<int>();
+        
+        public override void Push(int element)
         {
-            _linkedList = new DoublyLinkedList<int>();
-        }
-
-        public bool IsEmpty() => _linkedList.Head() == null;
-
-        public int Peek()
-        {
-            if (IsEmpty())
-                throw new InvalidOperationException("Stack is empty");
-
-            return _linkedList.Head().Value;
-        }
-
-        public int Pop() => _linkedList.RemoveHead();
-
-        public void Push(int element)
-        {
-            if (_minElement == int.MaxValue)
-                _minElement = element;
+            if (_minElements.IsEmpty())
+                _minElements.Push(element);
             else
-                _minElement = Math.Min(element, _minElement);
+                _minElements.Push(Math.Min(_minElements.Peek(), element));
+
+            base.Push(element);
         }
 
-        public int MinElement() => _minElement;
+        public override int Pop()
+        {
+            _minElements.Pop();
+            return base.Pop();
+        }
+
+        public int Min() => _minElements.Peek();
     }
 }

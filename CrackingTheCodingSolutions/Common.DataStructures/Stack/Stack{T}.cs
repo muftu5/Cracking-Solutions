@@ -21,8 +21,8 @@ namespace Common.DataStructure
             return _linkedList.Tail().Value;
         }
 
-        public T Pop() => _linkedList.RemoveTail();
+        public virtual T Pop() => _linkedList.RemoveTail();
 
-        public void Push(T element) => _linkedList.AppendTail(element);
+        public virtual void Push(T element) => _linkedList.AppendTail(element);
     }
 }
