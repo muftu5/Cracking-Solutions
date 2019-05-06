@@ -15,7 +15,7 @@ namespace PowerSet
             array = list;
         }
 
-        public IEnumerable<IList<int>> GetAllSubsets()
+        public IList<IList<int>> GetAllSubsets()
         {
             var prevLayer = new List<SubSet>() { new SubSet(array) };
             IList<SubSet> result = new List<SubSet>() { prevLayer.First() };
