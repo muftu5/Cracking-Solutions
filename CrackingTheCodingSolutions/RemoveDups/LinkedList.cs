@@ -1,5 +1,4 @@
 ﻿using Common.DataStructure;
-using System.Collections.Generic;
 
 namespace RemoveDups
 {
@@ -7,7 +6,7 @@ namespace RemoveDups
     {
         public LinkedList<T> RemoveDuplicates()
         {
-            foreach (var node in Enumerate(_tail))
+            foreach (var node in Enumerate())
             {
                 if (!node.HasNext()) break;
 
@@ -23,20 +22,5 @@ namespace RemoveDups
 
             return this;
         }
-
-        private static IEnumerable<SinglyLinkedNode<T>> Enumerate(SinglyLinkedNode<T> tail)
-        {
-            if (tail == null)
-                yield return default(SinglyLinkedNode<T>);
-
-            SinglyLinkedNode<T> current = tail;
-            while (current != null)
-            {
-                yield return current;
-                current = current.GetNext();
-            }
-        }
-
-        public IEnumerable<SinglyLinkedNode<T>> Enumerate() => Enumerate(_tail);
     }
 }

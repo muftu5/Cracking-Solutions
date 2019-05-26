@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Common.DataStructure
 {
@@ -61,5 +62,20 @@ namespace Common.DataStructure
 
         public SinglyLinkedNode<T> Head() => _head;
         public SinglyLinkedNode<T> Tail() => _tail;
+
+        public IEnumerable<SinglyLinkedNode<T>> Enumerate() => Enumerate(_tail);
+
+        protected static IEnumerable<SinglyLinkedNode<T>> Enumerate(SinglyLinkedNode<T> tail)
+        {
+            if (tail == null)
+                yield return default(SinglyLinkedNode<T>);
+
+            SinglyLinkedNode<T> current = tail;
+            while (current != null)
+            {
+                yield return current;
+                current = current.GetNext();
+            }
+        }
     }
 }
