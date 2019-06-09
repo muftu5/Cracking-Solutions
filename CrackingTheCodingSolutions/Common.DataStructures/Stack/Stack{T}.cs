@@ -11,6 +11,8 @@ namespace Common.DataStructure
             _linkedList = new SinglyLinkedList<T>();
         }
 
+        public virtual void Push(T element) => _linkedList.AppendTail(element);
+        public virtual T Pop() => _linkedList.RemoveTail();
         public bool IsEmpty() => _linkedList.Tail() == null;
 
         public T Peek()
@@ -20,9 +22,5 @@ namespace Common.DataStructure
 
             return _linkedList.Tail().Value;
         }
-
-        public virtual T Pop() => _linkedList.RemoveTail();
-
-        public virtual void Push(T element) => _linkedList.AppendTail(element);
     }
 }

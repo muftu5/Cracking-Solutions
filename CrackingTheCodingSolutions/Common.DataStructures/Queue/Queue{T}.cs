@@ -12,10 +12,8 @@ namespace Common.DataStructure.Queue
         }
 
         public void Add(T element) => _linkedList.AppendHead(element);
-
-
+        public T Remove() => _linkedList.RemoveTail();
         public bool IsEmpty() => _linkedList.Head() == null;
-
 
         public T Peek()
         {
@@ -24,7 +22,5 @@ namespace Common.DataStructure.Queue
 
             return _linkedList.Tail().Value;
         }
-
-        public T Remove() => _linkedList.RemoveTail();
     }
 }

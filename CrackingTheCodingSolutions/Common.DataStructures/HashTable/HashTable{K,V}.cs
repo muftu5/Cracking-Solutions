@@ -30,7 +30,9 @@ namespace Common.DataStructure.HashTable
         public bool HasKey(K key, out V value)
         {
             var divider = GetDivider(_array);
-            var node = _array.ElementAtOrDefault(key.GetHashCode() % divider)
+            var index = Math.Abs(key.GetHashCode() % divider);
+
+            var node = _array.ElementAtOrDefault(index)
                 ?.FirstOrDefault(x => x.Value.Key.Equals(key));
 
             var isNodeNull = node == null;
@@ -41,7 +43,7 @@ namespace Common.DataStructure.HashTable
         public V Remove(K key)
         {
             var divider = GetDivider(_array);
-            var index = key.GetHashCode() % divider;
+            var index = Math.Abs(key.GetHashCode() % divider);
             var linkedList = _array.ElementAtOrDefault(index);
 
             if (linkedList == null)

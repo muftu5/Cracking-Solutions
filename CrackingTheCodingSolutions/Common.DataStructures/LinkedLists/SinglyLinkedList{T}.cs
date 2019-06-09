@@ -10,9 +10,14 @@ namespace Common.DataStructure
         protected SinglyLinkedNode<T> _tail;
         protected SinglyLinkedNode<T> _head;
 
-        public int Count { get; private set; } = 0;
+        public int Count { get; private set; }
         public SinglyLinkedNode<T> Head() => _head;
         public SinglyLinkedNode<T> Tail() => _tail;
+
+        public SinglyLinkedList()
+        {
+            Count = 0;
+        }
 
         public void AppendHead(T value)
         {
