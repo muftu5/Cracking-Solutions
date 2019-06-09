@@ -1,12 +1,18 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Common.DataStructure
 {
-    public class SinglyLinkedList<T>
+    public class SinglyLinkedList<T> : IEnumerable<SinglyLinkedNode<T>>
     {
         protected SinglyLinkedNode<T> _tail;
         protected SinglyLinkedNode<T> _head;
+
+        public int Count { get; private set; } = 0;
+        public SinglyLinkedNode<T> Head() => _head;
+        public SinglyLinkedNode<T> Tail() => _tail;
 
         public void AppendHead(T value)
         {
@@ -22,6 +28,8 @@ namespace Common.DataStructure
                 _head.SetNext(node);
                 _head = node;
             }
+
+            Count++;
         }
 
         public void AppendTail(T value)
@@ -38,6 +46,8 @@ namespace Common.DataStructure
                 node.SetNext(_tail);
                 _tail = node;
             }
+
+            Count++;
         }
 
         public T RemoveTail()
@@ -57,18 +67,34 @@ namespace Common.DataStructure
                 _tail = null;
             }
 
+            Count--;
             return tail.Value;
         }
 
-        public SinglyLinkedNode<T> Head() => _head;
-        public SinglyLinkedNode<T> Tail() => _tail;
+        public T RemoveNext(SinglyLinkedNode<T> node)
+        {
+            var next = default(SinglyLinkedNode<T>);
+            if (node.HasNext())
+                next = node.GetNext();
 
-        public IEnumerable<SinglyLinkedNode<T>> Enumerate() => Enumerate(_tail);
+            if (next.HasNext())
+                node.SetNext(next.GetNext());
+            else
+                throw new ArgumentException("Next is null");
+
+            Count--;
+            return next.Value;
+        }   
+        
+        public IEnumerator<SinglyLinkedNode<T>> GetEnumerator() 
+            => Enumerate(_tail).GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
         protected static IEnumerable<SinglyLinkedNode<T>> Enumerate(SinglyLinkedNode<T> tail)
         {
             if (tail == null)
-                yield return default(SinglyLinkedNode<T>);
+                yield break;
 
             SinglyLinkedNode<T> current = tail;
             while (current != null)

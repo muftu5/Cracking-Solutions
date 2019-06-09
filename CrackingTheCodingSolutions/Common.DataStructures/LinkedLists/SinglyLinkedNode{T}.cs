@@ -19,4 +19,5 @@
         public SinglyLinkedNode<T> GetNext() => _next;
         public bool HasNext() => _next != null;
     }
+
 }

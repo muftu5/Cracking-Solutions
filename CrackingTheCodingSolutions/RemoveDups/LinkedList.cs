@@ -6,7 +6,7 @@ namespace RemoveDups
     {
         public LinkedList<T> RemoveDuplicates()
         {
-            foreach (var node in Enumerate())
+            foreach (var node in this)
             {
                 if (!node.HasNext()) break;
 

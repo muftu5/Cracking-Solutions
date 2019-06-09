@@ -9,12 +9,12 @@ namespace RemoveDups
     {
         public T GetKthLast(int k)
         {
-            var leading = Enumerate().Skip(k);
+            var leading = this.Skip(k);
 
             if (!leading.Any())
                 throw new ArgumentException($"{k} is not a valid k since list contails less elements");
 
-            var trailing = Enumerate();
+            var trailing = this.AsEnumerable();
 
             foreach (var node in leading)
             {

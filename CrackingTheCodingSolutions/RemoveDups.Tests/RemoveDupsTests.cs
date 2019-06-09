@@ -23,7 +23,7 @@ namespace RemoveDups.Tests
 
             linkedList.RemoveDuplicates();
 
-            Assert.AreEqual(3, linkedList.Enumerate().Count());
+            Assert.AreEqual(3, linkedList.Count());
         }
 
         [TestMethod]
@@ -36,7 +36,7 @@ namespace RemoveDups.Tests
 
             linkedList.RemoveDuplicates();
 
-            Assert.AreEqual(2, linkedList.Enumerate().Count());
+            Assert.AreEqual(2, linkedList.Count());
         }
 
         [TestMethod]
@@ -49,7 +49,7 @@ namespace RemoveDups.Tests
 
             linkedList.RemoveDuplicates();
 
-            Assert.AreEqual(1, linkedList.Enumerate().Count());
+            Assert.AreEqual(1, linkedList.Count());
         }
     }
 }
