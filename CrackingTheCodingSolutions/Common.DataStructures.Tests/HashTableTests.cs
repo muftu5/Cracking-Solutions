@@ -42,7 +42,7 @@ namespace Common.DataStructures.UnitTests
 
             var builtInHashTableTrialElasped = stopwatch.Elapsed.Milliseconds;
 
-            const float thresholdMultiplier = 0.95f;
+            const float thresholdMultiplier = 0.8f;
             Assert.IsTrue(customHashTableTrialElasped * thresholdMultiplier 
                 < builtInHashTableTrialElasped);
         }
@@ -63,7 +63,7 @@ namespace Common.DataStructures.UnitTests
         }
 
         [TestMethod]
-        public void Remove_ShouldRemoveKeyFromHashTable_ShouldThrowAnExceptionAfterElementRemoved()
+        public void Remove_ShouldRemoveKeyFromHashTable()
         {
             var hashTable = new HashTable<string, int>();
             var key = fixture.Create<string>();
@@ -81,5 +81,17 @@ namespace Common.DataStructures.UnitTests
         [ExpectedException(typeof(ArgumentException))]
         public void Remove_ShouldThrowAnException_WhenKeyNotFound()
             => new HashTable<int, int>().Remove(fixture.Create<int>());
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void Add_ShouldThrowAnException_WhenKeyAlreadyAdded()
+        {
+            var hashTable = new HashTable<string, int>();
+            var key = fixture.Create<string>();
+            var value = fixture.Create<int>();
+
+            hashTable.Add(key, value);
+            hashTable.Add(key, value);
+        }
     }
 }

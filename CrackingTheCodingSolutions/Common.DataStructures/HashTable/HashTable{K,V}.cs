@@ -1,5 +1,4 @@
-﻿using Common.DataStructure.HashTable.Exceptions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -94,14 +93,13 @@ namespace Common.DataStructure.HashTable
             SinglyLinkedList<KeyValueBlock>[] array,
             KeyValueBlock block)
         {
-            var divider = GetDivider(array);
-            var binIndex = Math.Abs(block.GetHashCode() % divider);
+            var binIndex = Math.Abs(block.GetHashCode() % GetDivider(array));
 
             if (array.ElementAtOrDefault(binIndex) == null)
                 array[binIndex] = new SinglyLinkedList<KeyValueBlock>();
 
-            if (array[binIndex].Any(x => x.Value.Equals(block.Value)))
-                throw new KeyValuePairAlreadyAdded();
+            if (array[binIndex].Any(x => x.Value.Equals(block)))
+                throw new InvalidOperationException("Key-Value pair already added.");
 
             array[binIndex].AppendTail(block);
         }
@@ -109,7 +107,7 @@ namespace Common.DataStructure.HashTable
         private int GetDivider(SinglyLinkedList<KeyValueBlock>[] array)
             => array.Length > 0 ? array.Length : 1;
 
-        protected struct KeyValueBlock
+        protected class KeyValueBlock
         {
             public K Key { get; private set; }
             public V Value { get; private set; }
@@ -120,6 +118,19 @@ namespace Common.DataStructure.HashTable
                 Value = value;
             }
 
+            public override bool Equals(object obj)
+            {
+                if ((obj == null) || !GetType().Equals(obj.GetType()))
+                {
+                    return false;
+                }
+                else
+                {
+                    var block = (KeyValueBlock)obj;
+                    return Value.Equals(block.Value) && Key.Equals(block.Key);
+                }
+            }
+    
             public override int GetHashCode() => Key.GetHashCode();
         }
     }

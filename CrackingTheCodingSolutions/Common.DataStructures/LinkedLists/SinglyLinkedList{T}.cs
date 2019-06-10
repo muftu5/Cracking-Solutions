@@ -11,8 +11,8 @@ namespace Common.DataStructure
         protected SinglyLinkedNode<T> _head;
 
         public int Count { get; private set; }
-        public SinglyLinkedNode<T> Head() => _head;
-        public SinglyLinkedNode<T> Tail() => _tail;
+        public SinglyLinkedNode<T> Head => _head;
+        public SinglyLinkedNode<T> Tail => _tail;
 
         public SinglyLinkedList()
         {

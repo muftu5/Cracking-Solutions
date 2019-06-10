@@ -13,14 +13,14 @@ namespace Common.DataStructure
 
         public virtual void Push(T element) => _linkedList.AppendTail(element);
         public virtual T Pop() => _linkedList.RemoveTail();
-        public bool IsEmpty() => _linkedList.Tail() == null;
+        public bool IsEmpty() => _linkedList.Tail == null;
 
         public T Peek()
         {
             if (IsEmpty())
                 throw new InvalidOperationException("Stack is empty");
 
-            return _linkedList.Tail().Value;
+            return _linkedList.Tail.Value;
         }
     }
 }

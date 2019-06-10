@@ -1,4 +1,4 @@
-﻿namespace Common.DataStructure.LinkedListImplementation
+﻿namespace Common.DataStructure.LinkedLists
 {
     public class DoublyLinkedNode<T>
     {

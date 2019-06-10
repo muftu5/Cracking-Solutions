@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HashTable\Exceptions\KeyValuePairAlreadyAdded.cs" />
+    <Compile Include="Deque\Deque{T}.cs" />
+    <Compile Include="Deque\IDeque{T}.cs" />
     <Compile Include="HashTable\HashTable{K,V}.cs" />
     <Compile Include="HashTable\IHashTable{K,V}.cs" />
     <Compile Include="LinkedLists\DoublyLinkedList{T}.cs" />

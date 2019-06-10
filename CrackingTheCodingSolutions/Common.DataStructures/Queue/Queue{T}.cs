@@ -13,14 +13,14 @@ namespace Common.DataStructure.Queue
 
         public void Add(T element) => _linkedList.AppendHead(element);
         public T Remove() => _linkedList.RemoveTail();
-        public bool IsEmpty() => _linkedList.Head() == null;
+        public bool IsEmpty() => _linkedList.Head == null;
 
         public T Peek()
         {
             if (IsEmpty())
-                throw new InvalidOperationException("Stack is empty");
+                throw new InvalidOperationException($"{nameof(Queue)} is empty");
 
-            return _linkedList.Tail().Value;
+            return _linkedList.Tail.Value;
         }
     }
 }
