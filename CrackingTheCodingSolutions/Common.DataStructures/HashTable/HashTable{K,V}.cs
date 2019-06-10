@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Common.DataStructure.HashTable
@@ -39,6 +38,7 @@ namespace Common.DataStructure.HashTable
             return !isNodeNull;
         }
 
+        /// Shrink is not yet supported
         public V Remove(K key)
         {
             var divider = GetDivider(_array);
