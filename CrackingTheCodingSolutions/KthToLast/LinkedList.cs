@@ -15,15 +15,19 @@ namespace RemoveDups
                 throw new ArgumentException($"{k} is not a valid k since list contails less elements");
 
             var trailing = this.AsEnumerable();
+            var result = default(T);
 
             foreach (var node in leading)
             {
                 if (!node.HasNext())
-                    return trailing.First().Value;
+                {
+                    result = trailing.First().Value;
+                    break;
+                }
                 else trailing = trailing.Skip(1);
             }
 
-            return default(T);
+            return result;
         }
     }
 }
